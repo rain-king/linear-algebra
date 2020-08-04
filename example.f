@@ -68,7 +68,7 @@
                 X = matrixvector(inv(A),B)   !defined at included file
                 print*, 'The vector which solves AX=B is X=A¯¹B:'
                 print*, X(:)
-                open(10,file='output')
+                open(10,file='output.txt')
                 do i=1,n
                         write(10,*) A(i,:)
                 end do
