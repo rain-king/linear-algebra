@@ -1,4 +1,4 @@
-!Author: Gustavo Murillo Vega
+!alternatively use solveX from linear-algebra.f
       include 'linear-algebra.f'
       program main
         use auxiliar
