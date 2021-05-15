@@ -1,7 +1,7 @@
 !alternatively use solveX from linear-algebra.f
       include 'linear-algebra.f'
       program main
-        use auxiliar
+        use linear_algebra
         real :: sizeB
         real, dimension(:,:), allocatable :: A
         real, dimension(:), allocatable :: B, X
@@ -22,7 +22,7 @@
           print*, 'Reading ', trim(filename)
         else
           print*, 'Reading example.txt'
-          filename = 'example.txt'
+          filename = '../example.txt'
         end if
 
         open(9, file=filename)

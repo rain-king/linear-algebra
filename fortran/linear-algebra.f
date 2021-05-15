@@ -1,7 +1,7 @@
 !can change real(4) for any kind, in vim %s/real(4)/real(16)/g would do
 !the trick
 
-      module notype
+      module linear_algebra
         implicit none
       contains
 
@@ -125,7 +125,7 @@
         real(4), intent(in) :: A(:)
         integer :: i, n
         n = size(A)
-        maxx=1
+        maxInVector=1
         do i=1,n
           if (A(i) > A(maxInVector)) maxInVector = i
         end do
@@ -136,8 +136,8 @@
 !additionally writes exit status to message
         real(4) :: sizeB, A(:,:), B(:), X(:)
         character(len=50) :: message
-        if (size(B) /= size(X))
-     &print*, 'X and B of different dimensions'
+        if (size(B) /= size(X)) print*,
+     &  'X and B of different dimensions'
         sizeB = norm(B)
         if (abs(determinant(A)) < 1E-6) then
           if (sizeB < 1E-6) then

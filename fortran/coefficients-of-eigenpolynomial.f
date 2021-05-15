@@ -1,6 +1,6 @@
       include 'linear-algebra.f'
       program main
-        use auxiliar
+        use linear_algebra
         real, dimension(:,:), allocatable :: id, matrix, matIn, matOut
         real, dimension(:), allocatable :: vector, coefficients
         real, dimension(:), allocatable :: eigenvalues
