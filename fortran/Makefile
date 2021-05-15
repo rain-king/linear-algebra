@@ -1,5 +1,5 @@
 ############################# PREAMBLE #############################
-FLAGS = #-ffree-form
+FLAGS = -ffree-form
 src = example.f array-slicing-example.f coefficients-of-eigenpolynomial.f
 targets = $(src:.f=.bin)
 
@@ -9,15 +9,15 @@ targets = $(src:.f=.bin)
 all: $(targets)
 
 prebuild:
-	if [ ! -d bin ]; then mkdir bin; fi
+	@if [ ! -d bin ]; then mkdir bin; fi
 
 ############################# BINARIES #############################
 $(targets): prebuild
-	gfortran $(@:.bin=.f) -o bin/$@ $(FLAGS)
+	@gfortran $(@:.bin=.f) -o bin/$@ $(FLAGS)
 
 ############################## TESTS ###############################
 .ONESHELL tests: all
-	./basic-tests.sh
+	@./basic-tests.sh
 
 ############################## CLEAN ###############################
 clean: clean-mod

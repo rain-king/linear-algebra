@@ -9,14 +9,13 @@
         integer :: i, j, n
 
         print*, 'This program solves AX=B, where'
-        print*, 'A is a square matrix, ',
-     &  'X and B are column vectors.'
+        print*, 'A is a square matrix, X and B are column vectors.'
         print*, ''
         print*, 'Default file is matrix.txt, use another file? [Y/n]'
         read(*,*) tmp
         if (tmp == 'y' .OR. tmp =='Y') then
-          print*, 'Name of file with matrix A and vector B, ',
-     &    'with their rows in order:'
+          print*, 'Name of file with matrix A and vector B, &
+              &with their rows in order:'
           read(*,*) filename
           print*, 'Reading ', trim(filename)
         else
