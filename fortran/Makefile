@@ -1,6 +1,6 @@
 ############################# PREAMBLE #############################
 FLAGS = -ffree-form
-src = example.f array-slicing-example.f coefficients-of-eigenpolynomial.f
+src = solve_system_of_equations.f array_slicing_example.f coefficients_of_eigenpolynomial.f
 targets = $(src:.f=.bin)
 
 .PHONY: prebuild clean clean-mod all test
@@ -17,10 +17,12 @@ $(targets): prebuild
 
 ############################## TESTS ###############################
 .ONESHELL tests: all
-	@./basic-tests.sh
+	@./tests.sh
 
 ############################## CLEAN ###############################
-clean: clean-mod
+clean: clean_mod
 	rm -rf bin output.txt
-clean-mod:
+clean_mod:
 	rm -f *.mod
+clean_tests:
+	rm -f tests.sh.log

@@ -1,4 +1,4 @@
-include 'linear-algebra.f'
+include 'linear_algebra.f'
 program main
     use linear_algebra
     real, dimension(:,:), allocatable :: id, matrix, matIn, matOut

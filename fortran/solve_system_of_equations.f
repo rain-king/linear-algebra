@@ -1,5 +1,5 @@
 !alternatively use solveX from linear-algebra.f
-include 'linear-algebra.f'
+include 'linear_algebra.f'
 program main
     use linear_algebra
     real :: sizeB
@@ -21,7 +21,7 @@ program main
         print*, 'Reading ', trim(filename)
     else
         print*, 'Reading example.txt'
-        filename = '../example.txt'
+        filename = 'example.txt'
     end if
 
     open(9, file=filename)

@@ -1,4 +1,5 @@
 #!/bin/sh
+LOG_FILE=$(pwd)/"$0".log
 
 if_exists_cd_to () {
     if [ -d $1 ]; then
@@ -9,22 +10,25 @@ if_exists_cd_to () {
     fi
 }
 test_if_runs () {
+    echo "$program:" >> $LOG_FILE
     case $1 in
-    coefficients-of-eigenpolynomial.bin|example.bin)
-        if (echo "n" | ./$1 > /dev/null); then 
+    bin/coefficients_of_eigenpolynomial.bin|bin/solve_system_of_equations.bin)
+        if (echo "n" | ./$1 >> $LOG_FILE); then 
             printf "$1: \033\n[32m%46s\033[m\n" "PASSED"
         else
-            printf "$1: \033\n[32m%46s\033[m\n" "FAILED"
+            printf "$1: \033\n[31m%46s\033[m\n" "FAILED"
         fi
     ;;
     *)
-        if (./$1 > /dev/null); then
+        if (./$1 >> $LOG_FILE); then
             printf "$1: \033\n[32m%46s\033[m\n" "PASSED"
         else 
-            printf "$1: \033\n[32m%46s\033[m\n" "FAILED"
+            printf "$1: \033\n[31m%46s\033[m\n" "FAILED"
         fi
     ;;
     esac
+    echo "***********************" >> $LOG_FILE
+    echo "" >> $LOG_FILE
 }
 test_if_it_exists () {
     if [ ! -e $1 ]; then
@@ -41,14 +45,12 @@ make_executable_if_not () {
 }
 
 ############################### MAIN #################################
-echo "*********** BASIC CORRECTNESS TEST ***********"
-if if_exists_cd_to bin; then
-    continue
-else
-    exit 1
+echo "*************** NO CRASH TEST ****************"
+if [ -e $LOG_FILE ]; then
+    rm $LOG_FILE
 fi
 
-for program in *.bin; do
+for program in bin/*.bin; do
     if test_if_it_exists $program; then
         make_executable_if_not $program
     fi
