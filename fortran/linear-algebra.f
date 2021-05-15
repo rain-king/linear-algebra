@@ -49,8 +49,8 @@ contains
     ! and branch that into my repo
 
     function minor(A, Ai, Aj)
-    ! Mnxn -> Mn-1xn-1
-    ! From input matrix, creates another matrix without row Ai and column Aj
+        ! Mnxn -> Mn-1xn-1
+        ! From input matrix, creates another matrix without row Ai and column Aj
         real(4), intent(in) :: A(:,:)
         real(4), allocatable :: minor(:,:)
         integer, intent(in) ::    Ai, Aj
@@ -74,7 +74,7 @@ contains
     end function
 
     function norm(X)
-    !return euclidean norm
+        !return euclidean norm
         real(4) :: norm
         real(4), dimension (:), intent(in) :: X
         integer :: i
@@ -86,7 +86,7 @@ contains
     end function
 
     function matrixVector(A,B)
-    !returns matrix A by vector B
+        !returns matrix A by vector B
         real(4) :: A(:,:), B(:)
         real(4), allocatable :: matrixvector(:)
         real(4) :: fsum
@@ -94,16 +94,16 @@ contains
         n = size(B)
         allocate(matrixvector(n))
         do i=1,n
-        fsum = 0
+            fsum = 0
             do k=1,n
                 fsum = fsum+A(i,k)*B(k)
             end do
-        matrixvector(i)=fsum
+            matrixvector(i)=fsum
         end do
     end function
 
     function matrixMatrix(A,B)
-    !return AxB
+        !return AxB
         real(4) :: A(:,:), B(:,:)
         real(4), allocatable :: matrixMatrix(:,:)
         real(4) :: fsum
@@ -132,8 +132,8 @@ contains
     end function
 
     subroutine solveX(A,B,X,message)
-    !solve system AX=B, for X
-    !additionally writes exit status to message
+        !solve system AX=B, for X
+        !additionally writes exit status to message
         real(4) :: sizeB, A(:,:), B(:), X(:)
         character(len=50) :: message
         if (size(B) /= size(X)) print*, 'X and B of different dimensions'
@@ -151,8 +151,8 @@ contains
     endsubroutine
 
     subroutine writef(A,B,X,n)
-    !write solution of solvex to file
-    !open a file with open in unit n, then use this subroutine
+        !write solution of solvex to file
+        !open a file with open in unit n, then use this subroutine
         real(4) :: A(:,:), B(:), X(:)
         integer :: i, n
         write(n,*) 'Matrix'
