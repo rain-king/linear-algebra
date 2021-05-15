@@ -1,18 +1,13 @@
 #!/bin/sh
 LOG_FILE=$(pwd)/"$0".log
+PROGRAMS=(bin/array_slicing_example.bin bin/coefficients_of_eigenpolynomial.bin\
+    bin/solve_system_of_equations.bin bin/matrix_by_vector.bin)
 
-if_exists_cd_to () {
-    if [ -d $1 ]; then
-        cd $1
-    else
-        echo "$1 does not exist"
-        return 1
-    fi
-}
 test_if_runs () {
     echo "$program:" >> $LOG_FILE
     case $1 in
-    bin/coefficients_of_eigenpolynomial.bin|bin/solve_system_of_equations.bin)
+    bin/coefficients_of_eigenpolynomial.bin|bin/solve_system_of_equations.bin\
+|bin/matrix_by_vector.bin)
         if (echo "n" | ./$1 >> $LOG_FILE); then 
             printf "$1: \033\n[32m%46s\033[m\n" "PASSED"
         else
@@ -50,9 +45,11 @@ if [ -e $LOG_FILE ]; then
     rm $LOG_FILE
 fi
 
-for program in bin/*.bin; do
+for program in ${PROGRAMS[@]}; do
     if test_if_it_exists $program; then
         make_executable_if_not $program
+    else
+        continue
     fi
     test_if_runs $program
 done
