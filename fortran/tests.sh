@@ -53,5 +53,4 @@ for program in ${PROGRAMS[@]}; do
     fi
     test_if_runs $program
 done
-cd ..
 echo "**********************************************"
