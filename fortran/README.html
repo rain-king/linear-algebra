@@ -1,0 +1,24 @@
+<h1 id="fortran-linear-algebra-library">Fortran Linear Algebra Library</h1>
+<h2 id="some-programs">Some programs</h2>
+<p>You can see the binaries in <code>bin/</code>.</p>
+<h3 id="solve-a-system-of-equations">Solve a System Of Equations</h3>
+<p>To compile:</p>
+<pre><code>make solve_system_of_equations.bin
+</code></pre>
+<p>Running the program in a terminal will ask you for a filename with data, it must be formatted to one row by line. The default filename will be <code>matrix_and_vector.txt</code>.</p>
+<h3 id="eigenpolynomial-coefficients-of-a-matrix">Eigenpolynomial Coefficients of a Matrix</h3>
+<p>To compile:</p>
+<pre><code>make coefficients_of_eigenpolynomial.bin
+</code></pre>
+<p>Reads one row per line from the file and returns the coefficients of the eigenpolynomial corresponding to the matrix.</p>
+<h3 id="matrix-by-vector-product">Matrix by Vector Product</h3>
+<p>To compile:</p>
+<pre><code>make matrix_by_vector.bin
+</code></pre>
+<p>Reads a file with a matrix and a vector, respectively prints matrix by vector.</p>
+<h2 id="tests">Tests</h2>
+<p>To check all programs run without crashing run:</p>
+<pre><code>make tests
+</code></pre>
+<h3 id="to-do">To Do</h3>
+<p>Check the programs for basic functionality with tests.</p>
