@@ -24,8 +24,8 @@ install: $(binaries)
 	@if [ $${PREFIX:(-1)} != "/" ]; then \
 		PREFIX="$$PREFIX/"; \
 	fi; \
-	mkdir -p $${PREFIX}bin; \
-	for binary in $^; do \
+	@mkdir -p $${PREFIX}bin; \
+	@for binary in $^; do \
 		install bin/$$binary $${PREFIX}bin; \
 	done
 
