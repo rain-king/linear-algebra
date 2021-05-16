@@ -1,13 +1,36 @@
-## Example
-Run compile.sh or compile manually example.f. Running the program in a terminal 
-will ask you for a filename with data, that filename will be example.txt, but 
-could be any file you like. It has a character limit so change it to len=*
-(where you can) or big enough for your filenames.
+# Fortran Linear Algebra Library
+## Some programs
 
-## Array Slicing Example
-The array slicing example doesn't need the library, but it proves useful for 
-anyone working with arrays. Keep this example in mind for modern fortran. 
+You can see the binaries in `bin/`.
+### Solve a System Of Equations
+To compile:
+```
+make solve_system_of_equations.bin
+```
+Running the program in a terminal will ask you for a filename with data, it
+must be formatted to one row by line. The default filename will be
+`matrix_and_vector.txt`. 
 
-## Eigen-polynomial coefficients
-It asks for a filename, data in the file should be a square matrix. Uses matrix.
-txt by default.
+### Eigenpolynomial Coefficients of a Matrix
+To compile:
+```
+make coefficients_of_eigenpolynomial.bin
+```
+Reads one row per line from the file and returns the coefficients of the
+eigenpolynomial corresponding to the matrix.
+
+### Matrix by Vector Product
+To compile:
+```
+make matrix_by_vector.bin
+```
+Reads a file with a matrix and a vector, respectively prints matrix by vector.
+
+## Tests
+To check all programs run without crashing run:
+```
+make tests
+```
+
+### To Do
+Check the programs for basic functionality with tests.
